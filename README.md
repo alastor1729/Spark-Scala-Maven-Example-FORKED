@@ -4,7 +4,7 @@ Example Maven Project for Scala Spark 2 Application
 
 # Introduction
 
-This archive contains an example Maven project for Scala Spark 2 application.
+This archive contains an example Maven project for Scala Spark 3.x application.
 
 # Details
 
@@ -24,6 +24,18 @@ The pom also includes two exec goals: -
 
 * `exec:exec@run-local` - run the code using local spark instance.
 * `exec:exec@run-yarn`  - run the code on a remote yarn cluster. In order for this to work the `hive-site.xml`, `core-site.xml` and `yarn-site.xml` configuration files from the remote cluster must be copied into the `spark-remote/conf` directory.
+
+# Note
+To run this code from your IDE, the following exports must be added to the JVM args:-
+
+```
+--add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+```
+This is also configured in the scalatest maven plugin in the pom: -
+
+```xml
+<argLine>--add-exports=java.base/sun.nio.ch=ALL-UNNAMED</argLine>
+```
 
 # Reference
 
