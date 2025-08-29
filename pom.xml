@@ -1,11 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.martinprobson.spark</groupId>
+
+    <groupId>com.alastor1729.spark</groupId>
+
     <artifactId>spark_example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
+
     <description>Example Scala Spark App - Maven build
         This POM has two exec goals: -
         exec:exec@run-local - Run the code in spark local mode.
@@ -13,7 +17,9 @@
         yarn-site.xml
         must exist in the main/resources directory and point to a valid cluster.
     </description>
+
     <inceptionYear>2017</inceptionYear>
+
     <repositories>
         <repository>
             <id>artima</id>
@@ -21,6 +27,7 @@
             <url>http://repo.artima.com/releases</url>
         </repository>
     </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
@@ -31,6 +38,7 @@
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
 
+
     <dependencies>
         <!-- Scala lang, spark core and spark sql are all
              scoped as provided as spark-submit will provide these -->
@@ -40,6 +48,7 @@
             <version>${scala.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_${scala.compat.version}</artifactId>
@@ -52,6 +61,7 @@
             </exclusions>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_${scala.compat.version}</artifactId>
@@ -64,6 +74,7 @@
             </exclusions>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -89,6 +100,8 @@
             <artifactId>jackson-core</artifactId>
             <version>2.15.2</version>
         </dependency>
+
+
         <!-- Test Scopes -->
         <dependency>
             <groupId>org.scalactic</groupId>
@@ -102,6 +115,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
@@ -143,9 +158,9 @@
                 <artifactId>scalatest-maven-plugin</artifactId>
                 <version>2.0.0</version>
                 <configuration>
-                    <argLine>--add-exports=java.base/sun.nio.ch=ALL-UNNAMED</argLine>
+<!--                    <argLine>&#45;&#45;add-exports=java.base/sun.nio.ch=ALL-UNNAMED</argLine>-->
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                    <suites>net.martinprobson.spark.SparkTest</suites>
+                    <suites>com.alastor1729.spark.SparkTest</suites>
                     <junitxml>.</junitxml>
                     <filereports>WDF TestSuite.txt</filereports>
                 </configuration>
@@ -158,6 +173,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+
             <!-- disable surefire -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -173,6 +190,7 @@
                     </includes>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -217,6 +235,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+
             <!-- Use the shade plugin to remove all the provided artifacts (such as spark itself)
             from the jar -->
             <plugin>
@@ -239,7 +259,7 @@
                     <transformers>
                         <transformer
                             implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>net.martinprobson.spark.Main</mainClass>
+                            <mainClass>com.alastor1729.spark.Main</mainClass>
                         </transformer>
                     </transformers>
                     <artifactSet>
@@ -265,4 +285,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>

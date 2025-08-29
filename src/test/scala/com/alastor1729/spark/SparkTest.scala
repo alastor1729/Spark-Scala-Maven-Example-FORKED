@@ -1,11 +1,13 @@
-package net.martinprobson.spark
+package com.alastor1729.spark
+
 
 import org.apache.spark.sql.SparkSession
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.BeforeAndAfterAll
 
 import java.io.InputStream
-import scala.io.StdIn
+//import scala.io.StdIn
+
 
 class SparkTest extends AnyFunSuite with BeforeAndAfterAll {
 
@@ -60,4 +62,6 @@ class SparkTest extends AnyFunSuite with BeforeAndAfterAll {
         val is: InputStream = getClass.getResourceAsStream(name)
         scala.io.Source.fromInputStream(is).getLines.toSeq
     }
+
+
 }
