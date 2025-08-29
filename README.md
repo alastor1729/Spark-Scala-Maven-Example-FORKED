@@ -11,14 +11,14 @@ This archive contains an example Maven project for `Scala (version 2.13.16)` and
 
 # Details
 
-The `pom.xml` contains example dependencies for : -
+The `pom.xml` contains example dependencies for:
 
 * Spark 
 * SLF4J
 * LOG4J (acts as logging implementation for SLF4J)
-* [grizzled-slf4](https://alvinalexander.com/scala/scala-logging-grizzled-slf4j) a Scala specific wrapper for SLF4J.
-* [typesafe](https://github.com/lightbend/config) for config.
-* scalatest for testing.
+* [grizzled-slf4](https://alvinalexander.com/scala/scala-logging-grizzled-slf4j) a Scala specific wrapper for SLF4J
+* [typesafe](https://github.com/lightbend/config) for config
+* scalatest for testing
 
 <br>
 
@@ -60,7 +60,7 @@ This is also configured in the scalatest maven plugin in the pom: -
 
 # Reference to the original-Repo-Creator:
 
-https://github.com/martinprobson/Spark-Scala-Maven-Example
+**https://github.com/martinprobson/Spark-Scala-Maven-Example**
 
 <br>
 <br>
