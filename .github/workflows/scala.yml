@@ -14,8 +14,7 @@ on:
 
 
 permissions:
-  contents: read
-  dependencies: write
+  contents: write
 
 
 jobs:
