@@ -32,5 +32,5 @@ jobs:
       run: mvn -B package # Use the Maven command to build
     - name: Run tests
       run: mvn test # Use the Maven command to run tests
-    - name: Upload dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v3 # Use the Maven dependency submission action
+
+      
